@@ -15,6 +15,12 @@ class TesteController extends Controller
         return view('clientes.create');
     }
     public function store(Request $request){
+        $validacao = $request->validate([
+            'nome' => 'required',
+            'sobrenome' => 'required',
+            'email' => 'required',
+            'idade' => 'required'
+        ]);
         cliente::create($request->all());
         return redirect()->route('clientes-index');
     }
@@ -27,6 +33,12 @@ class TesteController extends Controller
         }
     }
     public function update(Request $request, $id){
+        $validacao = $request->validate([
+            'nome' => 'required',
+            'sobrenome' => 'required',
+            'email' => 'required',
+            'idade' => 'required'
+        ]);
         $data = [
             'nome' => $request->nome,
             'sobrenome' => $request->sobrenome,

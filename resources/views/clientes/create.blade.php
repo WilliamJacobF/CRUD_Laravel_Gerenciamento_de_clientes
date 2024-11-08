@@ -23,5 +23,12 @@
   </div>
   <button type="submit" class="btn btn-primary">Cadastrar</button>
 </form>
+<br>
+
+@if($errors->any())
+  @foreach($errors->all() as $error)
+    <p>{{$error}}</p>
+  @endforeach
+@endif
 
 @endsection
